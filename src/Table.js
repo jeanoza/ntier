@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 //test
@@ -108,7 +109,27 @@ const Button = styled.button`
   }
 `;
 
+//FIXEME: to put baseURL
+const api = axios.create({
+  baseURL: "",
+});
+
 export default () => {
+  const [products, setProducts] = useState([]);
+
+  //FIXME:to use axios or fetch, using http get:
+  // const getProducts = async () => {
+  //   try {
+  //     setProducts(await api.get());
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+  useEffect(() => {
+    //FIXEME: put query
+    // getProducts();
+  }, []);
+
   return (
     <Container>
       {PRODUCT.map((el, index) => {
