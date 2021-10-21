@@ -111,28 +111,33 @@ const Button = styled.button`
 
 //FIXEME: to put baseURL
 const api = axios.create({
-  baseURL: "",
+  baseURL: "http://152.228.139.203/Efrei/ProductController.php",
 });
 
 export default () => {
   const [products, setProducts] = useState([]);
 
   //FIXME:to use axios or fetch, using http get:
-  // const getProducts = async () => {
-  //   try {
-  //     setProducts(await api.get());
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const getProducts = () => {
+    fetch("http://152.228.139.203/Efrei/ProductController.php")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setProducts(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
   useEffect(() => {
-    //FIXEME: put query
-    // getProducts();
+    // FIXEME: put query
+    getProducts();
   }, []);
 
   return (
     <Container>
-      {PRODUCT.map((el, index) => {
+      {products.map((el, index) => {
         return (
           <List key={index}>
             <ImageContainer>

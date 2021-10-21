@@ -37,5 +37,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://152.228.139.203/Efrei/ntier-master/"
+  "homepage": "http://152.228.139.203/Efrei/ntier-master/",
+  "proxy": "http://152.228.139.203/Efrei/ProductController.php/"
 }
